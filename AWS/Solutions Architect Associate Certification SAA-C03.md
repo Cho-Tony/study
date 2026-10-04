@@ -79,4 +79,24 @@ ec2instances.info : 모든 ec2인스턴스를 비교할 수 있는 사이트.
 - 443 = HTTPS - access secured websites
 - 3389 = RDP (Remote Desktop Protocol) - log into a Windows instance
 
+## 37. SSH Overview
 
+SSH란?
+다른 컴퓨터/서버에 원격으로 접속해서 명령어를 실행하는 방식
+특히 EC2에서는 Linux 서버에 접속할 때 거의 기본처럼 사용
+ex) ssh -i my-key.pem ec2-user@12.34.56.78
+
+pem은 security키 인데, instance를 만들 때 security key를 추가하는 란이 있음.
+이 key는 처음 생성할 때 한 번만 저장할 수 있으며 다시 다운 불가함.
+
+만약 instance에 key가 하나만 설정되어있고, 그 key를 잃어버렸으면 instance를 다시 만들어야하고
+기존 키로 접속할 수 있으면, 접속 후 key를 추가할 수 있음
+
+원격환경 나가는 keyword : exit
+
+## 42. EC2 Instance Connect
+Insance - Connect
+
+- EC Instance Connect
+: 웹으로 들어감. 접속 시 임시 SSH키를 생성해서 접속해주기 때문에 기존 SSH키 필요없음
+따라서 ssh기본포트인 22가 열려있지 않으면 웹 접속 불가능
